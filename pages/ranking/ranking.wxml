@@ -1,0 +1,32 @@
+<view class="container">
+  <!-- 电影列表开始 -->
+  <view class="list">
+    <!-- 影片信息开始 -->
+    <view class="item" wx:for="{{movies}}" wx:key="index">
+       <!-- 影片海报开始 -->
+       <navigator url="/pages/detail/detail?id={{item.id}}">
+          <image class="poster" src="{{item.images.large}}"></image>
+       </navigator>
+       <!-- 影片海报结束 -->
+       <!-- 影片信息开始 -->
+       <view class="meta">
+            <navigator url="/pages/detail/detail?id={{item.id}}">
+                <text class="title">{{item.title}}</text>
+            </navigator>
+            <text class="subTitle">{{item.original_title}}({{item.year}})</text>
+            <view class="directors">
+              导演：
+              <text wx:for="{{item.directors}}" wx:key="index">{{item.name}}</text>            
+            </view>
+       </view>
+       <!-- 影片信息结束 -->
+       <!-- 影片评论开始 -->
+       <view class="rating">
+        <text>{{item.rating.average}}</text>
+       </view>
+       <!-- 影片评论结束 -->
+    </view>
+    <!-- 影片信息结束 -->    
+  </view>
+  <!-- 电影列表结束 -->
+</view>

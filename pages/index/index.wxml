@@ -1,0 +1,36 @@
+<view class="container">
+  <!-- 轮播图开始 -->
+  <view class="swiper">
+    <swiper autoplay="true" indicator-dots="true" circular="true">
+        <swiper-item       
+          wx:for="{{swiperMovies}}" 
+          wx:key="index">
+          <image src="{{item}}"></image>
+        </swiper-item>
+    </swiper> 
+  </view>
+  <!-- 轮播图结束 -->
+  <!-- 版块开始 -->
+  <view class="board" wx:for="{{boards}}" wx:key="index">
+      <view class="board-item">
+        <!-- 标题开始 -->
+        <view class="title">
+          <text>{{item.title}}</text>
+        </view>
+        <!-- 标题结束 -->
+        <!-- 电影列表开始 -->
+        <view class="movie-list">
+          <!-- 单一电影信息开始 -->
+          <view class="movie-item" wx:for="{{item.movies}}" wx:key="index">
+            <navigator url="/pages/detail/detail?id={{item.id}}">
+                <image src="{{item.images.large}}"></image>
+                <text>{{item.title}}</text>
+            </navigator>
+          </view>
+          <!-- 单一电影信息结束 -->
+        </view>
+        <!-- 电影列表结束 -->
+      </view>
+  </view>
+  <!-- 版块结束 -->
+</view>
